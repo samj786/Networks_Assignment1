@@ -1,0 +1,35 @@
+2025-02-10 17:25:50,556:seed with address localhost:5000 started
+2025-02-10 17:25:50,575:seed with address localhost:5001 started
+2025-02-10 17:25:50,579:seed with address localhost:5002 started
+2025-02-10 17:26:01,112:localhost:6000 registered to seed with address localhost:5002
+2025-02-10 17:26:01,117:localhost:6000 registered to seed with address localhost:5001
+2025-02-10 17:26:03,120:(localhost:6000) received peer list: [('localhost', 6000)] 
+2025-02-10 17:26:11,016:localhost:6001 registered to seed with address localhost:5002
+2025-02-10 17:26:11,021:localhost:6001 registered to seed with address localhost:5000
+2025-02-10 17:26:13,024:(localhost:6001) received peer list: [('localhost', 6000), ('localhost', 6001)] 
+2025-02-10 17:26:14,030:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 1
+2025-02-10 17:26:14,030:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 1
+2025-02-10 17:26:19,031:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 2
+2025-02-10 17:26:24,033:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 3
+2025-02-10 17:26:27,916:localhost:6002 registered to seed with address localhost:5001
+2025-02-10 17:26:27,920:localhost:6002 registered to seed with address localhost:5002
+2025-02-10 17:26:29,033:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 4
+2025-02-10 17:26:29,034:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 4
+2025-02-10 17:26:29,924:(localhost:6002) received peer list: [('localhost', 6001), ('localhost', 6002), ('localhost', 6000)] 
+2025-02-10 17:26:30,931:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 1
+2025-02-10 17:26:34,035:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 5
+2025-02-10 17:26:34,035:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 5
+2025-02-10 17:26:34,035:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 5
+2025-02-10 17:26:35,933:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 2
+2025-02-10 17:26:39,036:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 6
+2025-02-10 17:26:39,036:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 6
+2025-02-10 17:26:39,037:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 6
+2025-02-10 17:26:40,934:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 3
+2025-02-10 17:26:44,036:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 7
+2025-02-10 17:26:44,037:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 7
+2025-02-10 17:26:49,038:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 8
+2025-02-10 17:26:49,038:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 8
+2025-02-10 17:26:54,038:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 9
+2025-02-10 17:26:54,040:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 9
+2025-02-10 17:26:59,041:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 10
+2025-02-10 17:26:59,041:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 10
