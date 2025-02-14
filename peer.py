@@ -335,63 +335,52 @@ class Peer:
     # Fail count + ping update 
     def liveness_test(self, new_socket):
         fail_count = 0
-        peer_addr = self.socket_addr_map[new_socket]  # Store peer address
-    
+        peer_addr = self.socket_addr_map[new_socket]
+
         while True:
             sleep(13)
             timestamp = datetime.now().timestamp()
 
-            '''
             try:
-                request = "Liveness Request:{0}:{1}:{2}".format(timestamp, self.ip, self.port)
-                new_socket.send(add_padding(request).encode())
-            
-                if peer_addr in self.peer_timestamps:
-                    if timestamp - self.peer_timestamps[peer_addr] > 0:
-                        fail_count += 1
-                    else:
-                        fail_count = 0
-                    
-            except Exception as e:
+                test_message = add_padding(f"Liveness Request:{timestamp}:{self.ip}:{self.port}")
+                new_socket.send(test_message.encode())
+                fail_count = 0
+                
+            except (ConnectionResetError, BrokenPipeError, OSError) as e:
                 fail_count += 1
-                print(f"An error occurred while sending liveness request {fail_count}")
-            '''
-            try:
-                system = platform.system().lower()
-                if system == "windows":
-                    ping_cmd = f"ping -n 1 {peer_addr[0]}"
-                else:
-                    ping_cmd = f"ping -c 1 {peer_addr[0]}"
-
-                response = os.system(ping_cmd)
-
-                if response == 0:
-                    fail_count = 0
-                else:
-                    fail_count += 1
-                    print(f"Ping failed for peer {peer_addr}, attempt {fail_count}")
-
-            except Exception as e:
-                fail_count += 1
-                print(f"Error while pinging peer {peer_addr}, attempt {fail_count}: {e}")
-
+                logging.warning(f"({self.ip}:{self.port}) - Connection test failed for peer {peer_addr}, attempt {fail_count}: {str(e)}")
 
             if fail_count >= 3:
-                print(f"Peer {peer_addr} is dead after 3 failed pings")
-                dead_node_message = f"Dead Node:{peer_addr[0]}:{peer_addr[1]}:{timestamp}:{self.ip}:{self.port}"
-            
-                # Notify seeds about dead peer
+                # Clear logging format for better readability
+                logging.info(f"({self.ip}:{self.port}) - Peer {peer_addr} declared dead after {fail_count} failed connection attempts")
+                logging.info(f"({self.ip}:{self.port}) - Sending dead node notification for peer {peer_addr} to seeds")
+                
+                dead_node_message = add_padding(f"Dead Node:{peer_addr[0]}:{peer_addr[1]}:{timestamp}:{self.ip}:{self.port}")
+                
+                # Notify seeds
+                seeds_notified = 0
                 for seed_socket in self.sockets_to_seed:
                     try:
-                        seed_socket.send(add_padding(dead_node_message).encode())
-                    except:
-                        continue
-                    
-                # Close socket and exit thread
+                        seed_socket.send(dead_node_message.encode())
+                        seeds_notified += 1
+                    except Exception as e:
+                        logging.error(f"({self.ip}:{self.port}) - Failed to notify seed about dead peer {peer_addr}: {e}")
+                
+                logging.info(f"({self.ip}:{self.port}) - Successfully notified {seeds_notified} seeds about dead peer {peer_addr}")
+                logging.info(f"({self.ip}:{self.port}) - Removing dead peer {peer_addr} from local data structures")
+                
+                # Cleanup
+                if peer_addr in self.addr_socket_map:
+                    del self.addr_socket_map[peer_addr]
+                if new_socket in self.socket_addr_map:
+                    del self.socket_addr_map[new_socket]
+                if peer_addr in self.peer_timestamps:
+                    del self.peer_timestamps[peer_addr]
+                
                 try:
                     new_socket.close()
-                except:
-                    pass
+                except Exception as e:
+                    logging.error(f"({self.ip}:{self.port}) - Error closing socket for dead peer {peer_addr}: {e}")
                 return
 
     
@@ -417,7 +406,7 @@ class Peer:
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO,filename='outputfile.log',format='%(asctime)s:%(message)s')
+    logging.basicConfig(level=logging.INFO, filename='outputfile.log', format='%(asctime)s:%(message)s')
 
     port=int(input('Enter port to connect to: '))
     peer = Peer(port=port)

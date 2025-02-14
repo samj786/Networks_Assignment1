@@ -75,12 +75,13 @@ class Seed:
                     
                 if message[0] == 'Dead Node':
                     address_of_dead_node = (message[1], int(message[2]))
-                    print("dead node ", address_of_dead_node, " removed from peer list")
-                    logging.info(f'dead node request recieved {address_of_dead_node} from peer with address {peer_ip_port[0]}:{peer_ip_port[1]} to seed {self.ip}:{self.port}')
+                    reporting_peer = (message[4], int(message[5].strip()))  # Strip to remove padding
                     
-                    if(address_of_dead_node in self.peerlist):
+                    logging.info(f'Dead node notification received for {address_of_dead_node} from peer {reporting_peer} at seed {self.ip}:{self.port}')
+                    
+                    if address_of_dead_node in self.peerlist:
                         self.peerlist.remove(address_of_dead_node)
-                        logging.info(f'dead node {address_of_dead_node} removed from peer list of seed {self.ip}:{self.port}\n')
+                        logging.info(f'Dead node {address_of_dead_node} removed from peer list at seed {self.ip}:{self.port}')
                     
         except Exception as e:
             print(f"An error occurred while handling the peer: ", e)

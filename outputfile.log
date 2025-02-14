@@ -1,35 +1,50 @@
-2025-02-10 17:25:50,556:seed with address localhost:5000 started
-2025-02-10 17:25:50,575:seed with address localhost:5001 started
-2025-02-10 17:25:50,579:seed with address localhost:5002 started
-2025-02-10 17:26:01,112:localhost:6000 registered to seed with address localhost:5002
-2025-02-10 17:26:01,117:localhost:6000 registered to seed with address localhost:5001
-2025-02-10 17:26:03,120:(localhost:6000) received peer list: [('localhost', 6000)] 
-2025-02-10 17:26:11,016:localhost:6001 registered to seed with address localhost:5002
-2025-02-10 17:26:11,021:localhost:6001 registered to seed with address localhost:5000
-2025-02-10 17:26:13,024:(localhost:6001) received peer list: [('localhost', 6000), ('localhost', 6001)] 
-2025-02-10 17:26:14,030:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 1
-2025-02-10 17:26:14,030:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 1
-2025-02-10 17:26:19,031:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 2
-2025-02-10 17:26:24,033:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 3
-2025-02-10 17:26:27,916:localhost:6002 registered to seed with address localhost:5001
-2025-02-10 17:26:27,920:localhost:6002 registered to seed with address localhost:5002
-2025-02-10 17:26:29,033:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 4
-2025-02-10 17:26:29,034:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 4
-2025-02-10 17:26:29,924:(localhost:6002) received peer list: [('localhost', 6001), ('localhost', 6002), ('localhost', 6000)] 
-2025-02-10 17:26:30,931:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 1
-2025-02-10 17:26:34,035:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 5
-2025-02-10 17:26:34,035:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 5
-2025-02-10 17:26:34,035:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 5
-2025-02-10 17:26:35,933:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 2
-2025-02-10 17:26:39,036:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 6
-2025-02-10 17:26:39,036:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 6
-2025-02-10 17:26:39,037:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 6
-2025-02-10 17:26:40,934:gossip message recieved on (localhost:6002) from peer with address ('localhost', 6001): message 3
-2025-02-10 17:26:44,036:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 7
-2025-02-10 17:26:44,037:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 7
-2025-02-10 17:26:49,038:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 8
-2025-02-10 17:26:49,038:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 8
-2025-02-10 17:26:54,038:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 9
-2025-02-10 17:26:54,040:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 9
-2025-02-10 17:26:59,041:gossip message recieved on (localhost:6001) from peer with address ('localhost', 6000): message 10
-2025-02-10 17:26:59,041:gossip message recieved on (localhost:6000) from peer with address ('localhost', 6001): message 10
+2025-02-13 14:41:34,162:seed with address localhost:6000 started
+2025-02-13 14:41:34,163:seed with address localhost:6001 started
+2025-02-13 14:41:34,164:seed with address localhost:6002 started
+2025-02-13 14:41:42,116:localhost:8000 registered to seed with address localhost:6000
+2025-02-13 14:41:42,118:localhost:8000 registered to seed with address localhost:6001
+2025-02-13 14:41:44,123:(localhost:8000) received peer list: [('localhost', 8000)] 
+2025-02-13 14:41:50,559:localhost:8001 registered to seed with address localhost:6000
+2025-02-13 14:41:50,560:localhost:8001 registered to seed with address localhost:6001
+2025-02-13 14:41:52,565:(localhost:8001) received peer list: [('localhost', 8000), ('localhost', 8001)] 
+2025-02-13 14:41:53,569:gossip message recieved on (localhost:8000) from peer with address ('localhost', 8001): message 1
+2025-02-13 14:41:53,569:gossip message recieved on (localhost:8001) from peer with address ('localhost', 8000): message 1
+2025-02-13 14:41:57,791:localhost:8002 registered to seed with address localhost:6000
+2025-02-13 14:41:57,792:localhost:8002 registered to seed with address localhost:6001
+2025-02-13 14:41:58,574:gossip message recieved on (localhost:8001) from peer with address ('localhost', 8000): message 2
+2025-02-13 14:41:58,574:gossip message recieved on (localhost:8000) from peer with address ('localhost', 8001): message 2
+2025-02-13 14:41:59,798:(localhost:8002) received peer list: [('localhost', 8000), ('localhost', 8001), ('localhost', 8002)] 
+2025-02-13 14:42:00,806:gossip message recieved on (localhost:8002) from peer with address ('localhost', 8000): message 1
+2025-02-13 14:42:03,579:gossip message recieved on (localhost:8001) from peer with address ('localhost', 8000): message 3
+2025-02-13 14:42:03,579:gossip message recieved on (localhost:8000) from peer with address ('localhost', 8001): message 3
+2025-02-13 14:42:03,580:gossip message recieved on (localhost:8002) from peer with address ('localhost', 8000): message 3
+2025-02-13 14:42:05,811:gossip message recieved on (localhost:8002) from peer with address ('localhost', 8000): message 2
+2025-02-13 14:42:08,580:gossip message recieved on (localhost:8001) from peer with address ('localhost', 8000): message 4
+2025-02-13 14:42:08,580:gossip message recieved on (localhost:8000) from peer with address ('localhost', 8001): message 4
+2025-02-13 14:42:08,580:gossip message recieved on (localhost:8002) from peer with address ('localhost', 8000): message 4
+2025-02-13 14:42:13,583:gossip message recieved on (localhost:8000) from peer with address ('localhost', 8001): message 5
+2025-02-13 14:42:13,583:gossip message recieved on (localhost:8001) from peer with address ('localhost', 8000): message 5
+2025-02-13 14:42:13,809:(localhost:8000) - Connection test failed for peer ('localhost', 8002), attempt 1: [Errno 32] Broken pipe
+2025-02-13 14:42:18,588:gossip message recieved on (localhost:8001) from peer with address ('localhost', 8000): message 6
+2025-02-13 14:42:18,588:gossip message recieved on (localhost:8000) from peer with address ('localhost', 8001): message 6
+2025-02-13 14:42:26,814:(localhost:8000) - Connection test failed for peer ('localhost', 8002), attempt 2: [Errno 32] Broken pipe
+2025-02-13 14:42:32,577:(localhost:8000) - Connection test failed for peer ('localhost', 8001), attempt 1: [Errno 32] Broken pipe
+2025-02-13 14:42:39,817:(localhost:8000) - Connection test failed for peer ('localhost', 8002), attempt 3: [Errno 32] Broken pipe
+2025-02-13 14:42:39,817:(localhost:8000) - Peer ('localhost', 8002) declared dead after 3 failed connection attempts
+2025-02-13 14:42:39,817:(localhost:8000) - Sending dead node notification for peer ('localhost', 8002) to seeds
+2025-02-13 14:42:39,817:(localhost:8000) - Successfully notified 2 seeds about dead peer ('localhost', 8002)
+2025-02-13 14:42:39,817:(localhost:8000) - Removing dead peer ('localhost', 8002) from local data structures
+2025-02-13 14:42:39,817:Dead node notification received for ('localhost', 8002) from peer ('localhost', 8000) at seed localhost:6000
+2025-02-13 14:42:39,818:Dead node ('localhost', 8002) removed from peer list at seed localhost:6000
+2025-02-13 14:42:39,818:Dead node notification received for ('localhost', 8002) from peer ('localhost', 8000) at seed localhost:6001
+2025-02-13 14:42:39,818:Dead node ('localhost', 8002) removed from peer list at seed localhost:6001
+2025-02-13 14:42:45,582:(localhost:8000) - Connection test failed for peer ('localhost', 8001), attempt 2: [Errno 32] Broken pipe
+2025-02-13 14:42:58,587:(localhost:8000) - Connection test failed for peer ('localhost', 8001), attempt 3: [Errno 32] Broken pipe
+2025-02-13 14:42:58,587:(localhost:8000) - Peer ('localhost', 8001) declared dead after 3 failed connection attempts
+2025-02-13 14:42:58,587:(localhost:8000) - Sending dead node notification for peer ('localhost', 8001) to seeds
+2025-02-13 14:42:58,588:(localhost:8000) - Successfully notified 2 seeds about dead peer ('localhost', 8001)
+2025-02-13 14:42:58,588:(localhost:8000) - Removing dead peer ('localhost', 8001) from local data structures
+2025-02-13 14:42:58,588:Dead node notification received for ('localhost', 8001) from peer ('localhost', 8000) at seed localhost:6000
+2025-02-13 14:42:58,588:Dead node ('localhost', 8001) removed from peer list at seed localhost:6000
+2025-02-13 14:42:58,588:Dead node notification received for ('localhost', 8001) from peer ('localhost', 8000) at seed localhost:6001
+2025-02-13 14:42:58,589:Dead node ('localhost', 8001) removed from peer list at seed localhost:6001

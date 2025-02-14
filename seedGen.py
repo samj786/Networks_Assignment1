@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO,filename='outputfile.log',format='%(ascti
 
 threads = []
 for i in range(num_seeds):
-    seed_port = 5000 + i  # Assign a unique port for each seed
+    seed_port = 6000 + i  # Assign a unique port for each seed
     seed = Seed(port=seed_port)  
     seed_list.append(seed)
     seedThread = threading.Thread(target=seed.listen) # Start the seed in a new thread
