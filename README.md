@@ -36,9 +36,9 @@ There are two methods to run the code:
 ### Method 2 (Manual Execution)
 
 1.Run the seed node manually by executing seed.py.
-```bash
-  python seed.py
-  ```
+   ```bash
+     python seed.py
+   ```
   Ensure that you clear outputfile.log and config.txt before starting the first seed node.
   
 2. Run a peer node manually by executing peer.py.
@@ -59,7 +59,6 @@ The structure in terms of thread/code is as follows:
 ### Structure of the Peer Node
 ![Peer Node Structure](images/peer.png)
 
----
 
 ## Code Explanation
 
@@ -76,7 +75,6 @@ The `Seed` class is responsible for managing the seed node and providing peer li
 - `handle_peer(self, peer, addr)`  
   Manages peer communication, storing active peers and providing peer lists.
 
----
 
 ### `peer.py`
 The `Peer` class manages peer-to-peer communication. Upon startup, it creates two key threads:
@@ -110,7 +108,6 @@ Spawns three threads for each connected peer:
 3. **Gossip Thread**
    - Periodically generates and sends gossip messages.
 
----
 
 ### `seedGen.py`
 The `seedGen.py` script automates seed node creation.
@@ -120,7 +117,6 @@ The `seedGen.py` script automates seed node creation.
 - Assigns unique ports starting at 6000.
 - Launches seed nodes in separate threads.
 
----
 
 ## Summary
 This project provides a **basic yet functional peer-to-peer network** implementation with:
