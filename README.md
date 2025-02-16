@@ -53,10 +53,10 @@ The structure in terms of thread/code is as follows:
 > **NOTE:** If these images are not visible, please check the extras folder in the repository.
 
 ### Structure of the Seed Node
-![Seed Node Structure](./path_to_image)
+![Seed Node Structure](images/Screenshot 2025-02-16 at 6.28.17 PM.png)
 
 ### Structure of the Peer Node
-![Peer Node Structure](./path_to_image)
+![Peer Node Structure](images/Screenshot 2025-02-16 at 6.28.48 PM.png)
 
 ---
 
