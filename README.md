@@ -58,6 +58,12 @@ The structure in terms of thread/code is as follows:
 ### Structure of the Peer Node
 ![Peer Node Structure](images/Screenshot 2025-02-16 at 6.28.48 PM.png)
 
+### Structure of the Seed Node
+![Seed Node Structure](images/seed.png)
+
+### Structure of the Peer Node
+![Peer Node Structure](images/peer.png)
+
 ---
 
 # Code Explanation
