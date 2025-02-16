@@ -41,3 +41,91 @@ To start a seed node, run the `seed.py` file and enter the port to connect to wh
 
 ```bash
 python seed.py
+```
+To start a peer node, run the peer.py file and enter the port to connect to when prompted:
+```bash
+python peer.py
+```
+# Structure
+
+The structure in terms of thread/code is as follows:
+
+> **NOTE:** If these images are not visible, please check the extras folder in the repository.
+
+### Structure of the Seed Node
+![Seed Node Structure](./path_to_image)
+
+### Structure of the Peer Node
+![Peer Node Structure](./path_to_image)
+
+---
+
+# Code Explanation
+
+## `seed.py`
+
+The `seed.py` file contains the `Seed` class, which is responsible for handling the seed node in the network. The seed node maintains a list of active peers and provides this list to any peer that requests it.
+
+### The `Seed` class has the following methods:
+
+- `__init__(self, port=12345, ip='localhost')`  
+  Initializes the seed node with the given IP address and port number and creates a new socket for the seed node.
+
+- `config_entry(self)`  
+  Checks if the seed node is already present in the `config.txt` file. If not, it adds the seed node to the file.
+
+- `listen(self)`  
+  Makes the seed node listen for incoming connections. When a peer node connects to the seed node, it starts a new thread to handle the peer node.
+
+- `handle_peer(self, peer, addr)`  
+  Handles communication with a peer node. It receives messages from the peer node and responds accordingly.
+
+---
+
+## `peer.py`
+
+The `peer.py` script is responsible for managing the peer-to-peer network. It starts with the `self.start` function, which initiates two threads:
+
+### **Listening Thread**
+This thread is responsible for listening to other peer nodes. When a connection is established, it starts a new thread to handle the communication with the connected peer node by calling the `handle_peer` function.
+
+### **Seed Connection Thread**
+This thread is responsible for connecting to the seed nodes using `connect_to_seeds`. After that, it retrieves the peer list from each connected seed node (handled in `handle_seeds`). After retrieving the peer lists, it performs a union operation to create a comprehensive list of available peers in the network. Then, it calls `connect_to_peers` to connect to the peers.
+
+---
+
+### `connect_to_peers` Function
+This function is responsible for establishing connections with other peers in the network. It performs the following steps:
+
+1. Randomly selects up to **4 peers** from the available peer list.
+2. Checks if each selected peer is not the same as the current peer. If it is, it skips to the next peer.
+3. Creates a new socket and tries to connect to the peer.
+4. If the connection is successful, it adds the socket to the list of connected peer sockets (`self.sockets_to_peers`).
+5. Starts a new thread to handle communication with the connected peer by calling `handle_peer`.
+6. If the connection fails, it prints an error message and continues with the next peer.
+
+---
+
+## `handle_peer` Function
+The `handle_peer` function is responsible for managing communication with a connected peer. For each connected peer, it starts **three separate threads**:
+
+### **1. Handle Messages Thread**
+- Runs the `handle_messages` method.
+- Listens for and processes incoming messages from the connected peer.
+- Forwards gossip messages to other peers.
+- Responds to liveness requests.
+
+### **2. Liveness Test Thread**
+- Runs the `liveness_test` method.
+- Periodically sends a liveness request to the connected peer to check if it's still active.
+- If no reply is received within a certain time, the peer is considered inactive and reported as `deadnode`.
+
+### **3. Gossip Thread (Generate Messages)**
+- Runs the `generate_messages` method.
+- Periodically sends a gossip message to the connected peer.
+
+---
+
+These threads allow the peer to handle multiple tasks concurrently for each connected peer, ensuring **efficient communication and network management**.
+
+
